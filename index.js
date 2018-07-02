@@ -18,16 +18,22 @@ function removeEntriesForFile(pathName) {
 function updateEntriesForFile(pathName) {
   const content = fs.readFileSync(pathName, 'utf8');
   const filetype = path.extname(pathName);
-  const fileName = pathName.replace(/^.*[\\\/]/, '');
-  const todosAndFixmes = leasot.parse({
-    ext: filetype,
-    content,
-    fileName,
-  });
 
-  results[pathName] = todosAndFixmes;
+  if (leasot.isExtSupported(filetype)) {
+    const fileName = pathName.replace(/^.*[\\\/]/, ''); // eslint-disable-line
+    const todosAndFixmes = leasot.parse({
+      ext: filetype,
+      content,
+      fileName,
+      skipUnsupported: true,
+    });
 
-  displayResults(results);
+    if (todosAndFixmes && todosAndFixmes.length > 0) {
+      results[pathName] = todosAndFixmes;
+    }
+
+    displayResults(results);
+  }
 }
 
 chokidar
