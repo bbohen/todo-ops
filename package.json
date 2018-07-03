@@ -10,7 +10,7 @@
   "author": "Brad Bohen",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.4.1",
+    "blessed": "^0.1.81",
     "chokidar": "^2.0.4",
     "leasot": "^6.3.0"
   },

@@ -4,15 +4,16 @@ const leasot = require('leasot');
 const path = require('path');
 const process = require('process');
 
-const displayResults = require('./renderers/terminal');
+const BlessedRenderer = require('./renderers/blessed');
 
+const renderer = new BlessedRenderer();
 const pathToWatch = process.argv[2] || process.cwd();
 const results = {};
 
 function removeEntriesForFile(pathName) {
   delete results[pathName];
 
-  displayResults(results);
+  renderer.update(results);
 }
 
 function updateEntriesForFile(pathName) {
@@ -32,7 +33,7 @@ function updateEntriesForFile(pathName) {
       results[pathName] = todosAndFixmes;
     }
 
-    displayResults(results);
+    renderer.update(results);
   }
 }
 
