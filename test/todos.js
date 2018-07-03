@@ -1,6 +1,5 @@
 // Actual TODOs for the project
 
-// TODO: add some colors
 // TODO: add list format for lengthy todos (or something similar)
 // TODO: electron app
 // TODO: generate markdown of some sort, auto add this file to repo
