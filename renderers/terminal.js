@@ -1,16 +1,17 @@
 const process = require('process');
 const readline = require('readline');
+const chalk = require('chalk');
 
-const logger = require('../utils/logger');
+const logger = console.log.bind(console);
 
 module.exports = function displayResults(results) {
   readline.cursorTo(process.stdout, 0, 0);
   readline.clearScreenDown(process.stdout);
 
   Object.entries(results).forEach(([fileName, todos]) => {
-    logger(`*** ${fileName}`);
+    logger(chalk.magenta.underline(fileName));
     todos.forEach(({ text }) => {
-      logger(`-- ${text}`);
+      logger(chalk.green(`-- ${text}`));
     });
   });
 };
