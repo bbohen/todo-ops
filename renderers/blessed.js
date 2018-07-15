@@ -12,8 +12,9 @@ class BlessedRenderer {
       left: 'center',
       width: '98%',
       height: '98%',
-      interactive: false,
+      interactive: true,
       items: [],
+      keys: true,
       tags: true,
       border: {
         type: 'line',
@@ -22,6 +23,9 @@ class BlessedRenderer {
         fg: 'white',
         border: {
           fg: '#f0f0f0',
+        },
+        selected: {
+          fg: '#ff8500',
         },
       },
     });
