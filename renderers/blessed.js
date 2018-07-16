@@ -16,14 +16,8 @@ class BlessedRenderer {
       items: [],
       keys: true,
       tags: true,
-      border: {
-        type: 'line',
-      },
       style: {
         fg: 'white',
-        border: {
-          fg: '#f0f0f0',
-        },
         selected: {
           fg: '#ff8500',
         },
