@@ -39,7 +39,8 @@ function updateEntriesForFile(pathName) {
 
 chokidar
   .watch(pathToWatch, {
-    ignored: /(^|[\/\\])\../, // eslint-disable-line
+    // ignored: /(^|[\/\\])\../, // eslint-disable-line
+    ignored: ['**/node_modules'],
     persistent: true,
   })
   .on('add', updateEntriesForFile)
